@@ -43,18 +43,16 @@ The app defines following APIs.
 ##### <a id="signup">Sign Up -> /api/auth/signup</a>
 ```json
 {
-	"firstName": "Leanne",
-	"lastName": "Graham",
-	"username": "leanne",
+	"username": "deaslide",
+	"email": "user@deaslide.com",
 	"password": "password",
-	"email": "leanne.graham@gmail.com"
 }
 ```
 
 ##### <a id="signin">Log In -> /api/auth/signin</a>
 ```json
 {
-	"usernameOrEmail": "leanne",
+	"email": "user@deaslide.com",
 	"password": "password"
 }
 ```
