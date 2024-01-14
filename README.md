@@ -15,27 +15,32 @@ The app defines following APIs.
 ### P2P
 
 | Method | Url                             | Description                               | Sample Valid Request Body |
-|--------|---------------------------------|-------------------------------------------|---------------------------|
-| POST   | /api/p2p/create-order           | Create order                              | [JSON](#create-order)     |
-| GET    | /api/p2p/cancel-order/{orderId} | Cancel order by id                        |      |
-| GET    | /api/p2p/get-banks              | Get provided currencies for display banks |      |
-| GET    | /api/p2p/get-banks/{currency}   | Get provided banks by currency            |      |
+|--------|---------------------------------|-------------------------------------------|--------------------------|
+| POST   | /api/p2p/create-order           | Create order                              | [JSON](#create-order)    |
+| GET    | /api/p2p/cancel-order/{orderId} | Cancel order by id                        |                          |
+| POST   | /api/p2p/init-deal              | Init deal by order                        | [JSON](#init-deal)       |
+| GET      | /api/p2p/confirm-deal/{dealId}  | Confirm deal and send tokens to buyer     |        |
+| GET      | /api/p2p/cancel-deal/{dealId}   | Cancel deal by id                         |        |
+| GET      | /api/p2p/proof-payment/{dealId} | Proof payment by deal id                    |        |
+| GET    | /api/p2p/get-banks              | Get provided currencies for display banks |                          |
+| GET    | /api/p2p/get-banks/{currency}   | Get provided banks by currency            |                          |
 
 ### User
 
 | Method | Url                                    | Description                 | Sample Valid Request Body |
 |--------|----------------------------------------|-----------------------------|--------------------------|
 | GET    | /api/user/details                      | Get user details            |                          |
-| PUT    | /api/user/payment-methods              | Add payment method          | [JSON](#add-payment)     |
+| POST   | /api/user/payment-methods              | Add payment method          | [JSON](#add-payment)     |
 | DELETE | /api/user/payment-methods?id=paymentId | Delete payment method by id |      |
 | GET    | /api/user/payment-methods              | Get all user payments       |      |
 
 ### Wallet
 
-| Method | Url                             | Description                 | Sample Valid Request Body |
-| ------ |---------------------------------|-----------------------------| ------------------------- |
-| GET    | /api/wallet/balances            | Get all provided currencies | |
-| GET    | /api/wallet/balances/{currency} | Get balances by currency    | |
+| Method | Url                  | Description                 | Sample Valid Request Body |
+|--------|----------------------|-----------------------------|---------------------------|
+| GET    | /api/wallet/balances | Get all provided currencies |                           |
+| GET    | /api/wallet/balances/{currency} | Get balances by currency    |                           |
+| POST   | /api/wallet/send     | Send tokens                 | [JSON](#send-tokens)      |
 
 
 ## Sample Valid JSON Request Bodies
@@ -80,10 +85,30 @@ The app defines following APIs.
 	]
 }
 ```
+
+##### <a id="init-deal">Init deal by order -> /api/p2p/init-deal</a>
+```json
+{
+	"orderId": "65a40226c40c784088f4400e",
+	"amount": 9
+}
+```
+
 ##### <a id="add-payment">Add payment method -> /api/user/payment-methods</a>
 ```json
 {
 	"bankId": "659edfb2405a863a5edd51b6",
 	"account": "1111222233334444"
+}
+```
+
+##### <a id="send-tokens">Send tokens -> /api/wallet/send</a>
+```json
+{
+	"address": "3PJHfVz5obiTaBgK6Q83GMB9vrFHKbL1Yab",
+	"amount": 8,
+	"assetId": "659efb33acf9fe34333b6e20",
+	"feeAssetId": "659efb33acf9fe34333b6e20",
+	"totpCode": ""
 }
 ```
