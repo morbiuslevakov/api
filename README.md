@@ -14,12 +14,13 @@ The app defines following APIs.
 
 ### P2P
 
-| Method | Url                             | Description                               | Sample Valid Request Body |
-|--------|---------------------------------|-------------------------------------------|--------------------------|
-| POST   | /api/p2p/create-order           | Create order                              | [JSON](#create-order)    |
-| GET    | /api/p2p/cancel-order/{orderId} | Cancel order by id                        |                          |
-| GET    | /api/p2p/get-banks              | Get provided currencies for display banks |                          |
-| GET    | /api/p2p/get-banks/{currency}   | Get provided banks by currency            |                          |
+| Method | Url                             | Description                             | Sample Valid Request Body |
+|--------|---------------------------------|-----------------------------------------|---------------------------|
+| POST   | /api/p2p/create-order           | Create order                            | [JSON](#create-order)     |
+| GET    | /api/p2p/cancel-order/{orderId} | Cancel order by id                      |                           |
+| GET    | /api/p2p/get-banks              | Get provided currencies for display banks |                           |
+| GET    | /api/p2p/get-banks/{currency}   | Get provided banks by currency          |                           |
+| GET    | /api/p2p/get-orders?page=1      | Get orders              | [JSON](#get-orders)       |
 
 
 ### Deals
@@ -90,8 +91,21 @@ The app defines following APIs.
 	"paymentTime": 15,
   	"comment": "comment",
 	"paymentMethods": [
-		"659d82f2da858d4c0ebe02e3"
+      	"659d82f2da858d4c0ebe02e3"
 	]
+}
+```
+
+##### <a id="get-orders">Get orders -> /api/p2p/get-orders</a>
+```json
+{
+  	"type": "SELL",
+  	"currency": "RUB",
+  	"asset": "YUSRA",
+  	"paymentMethods": [
+      	"bankId",
+      	"bankId"
+    ]
 }
 ```
 
