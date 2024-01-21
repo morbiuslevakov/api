@@ -18,12 +18,20 @@ The app defines following APIs.
 |--------|---------------------------------|-------------------------------------------|--------------------------|
 | POST   | /api/p2p/create-order           | Create order                              | [JSON](#create-order)    |
 | GET    | /api/p2p/cancel-order/{orderId} | Cancel order by id                        |                          |
-| POST   | /api/p2p/init-deal              | Init deal by order                        | [JSON](#init-deal)       |
-| GET      | /api/p2p/confirm-deal/{dealId}  | Confirm deal and send tokens to buyer     |        |
-| GET      | /api/p2p/cancel-deal/{dealId}   | Cancel deal by id                         |        |
-| GET      | /api/p2p/proof-payment/{dealId} | Proof payment by deal id                    |        |
 | GET    | /api/p2p/get-banks              | Get provided currencies for display banks |                          |
 | GET    | /api/p2p/get-banks/{currency}   | Get provided banks by currency            |                          |
+
+
+### Deals
+
+| Method | Url                             | Description                      | Sample Valid Request Body |
+|--------|---------------------------------|----------------------------------|---------------------------|
+| POST   | /api/p2p/create-deal            | Create deal                      | [JSON](#create-deal)      |
+| GET    | /api/p2p/cancel-deal/{dealId}   | Cancel deal by id                |                           |
+| GET    | /api/p2p/confirm-deal/{dealId)  | Confirm deal                     |                           |
+| GET    | /api/p2p/proof-payment/{dealId} | Proof payment by buyer or seller |                           |
+
+
 
 ### User
 
@@ -50,7 +58,7 @@ The app defines following APIs.
 {
 	"username": "deaslide",
 	"email": "user@deaslide.com",
-	"password": "password",
+	"password": "password"
 }
 ```
 
@@ -79,18 +87,25 @@ The app defines following APIs.
 	"amount": 1000,
 	"fee": 2.5641,
 	"minSum": 100,
-	"paymentTime": 15, 
+	"paymentTime": 15,
+  	"comment": "comment",
 	"paymentMethods": [
 		"659d82f2da858d4c0ebe02e3"
 	]
 }
 ```
 
-##### <a id="init-deal">Init deal by order -> /api/p2p/init-deal</a>
+##### <a id="create-order">Create deal -> /api/p2p/create-deal</a>
 ```json
 {
-	"orderId": "65a40226c40c784088f4400e",
-	"amount": 9
+	"type": "SELL",
+	"orderId": "659b080aa8cc125d77d4e380",
+	"price": 18.24,
+	"amount": 274.12,
+	"sum": 5000,
+	"payments": [
+		"659d82f2da858d4c0ebe02e3"
+	]
 }
 ```
 
