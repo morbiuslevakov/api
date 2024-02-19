@@ -129,7 +129,7 @@ stompClient.connect({}, function(frame) {
   "minSum": 100,
   "paymentTime": 15,
   "comment": "comment",
-  "paymentMethods": [
+  "payments": [
     "659d82f2da858d4c0ebe02e3"
   ]
 }
@@ -143,7 +143,7 @@ stompClient.connect({}, function(frame) {
   "type": "SELL",
   "currency": "RUB",
   "assetId": "659b080aa8cc125d77d4e380",
-  "paymentMethods": [
+  "bankIds": [
     "659b080aa8cc125d77d4e380",
     "659b080aa8cc125d77d4e380"
   ]
