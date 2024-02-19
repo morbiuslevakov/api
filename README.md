@@ -202,16 +202,16 @@ stompClient.connect({}, function(frame) {
     }
   },
   "maker": {
-    username: "username", 
-    role: "SELLER",
-    deals: "159", 
-    completedPercent: "98"
+    "username": "username", 
+    "role": "SELLER",
+    "deals": "159", 
+    "completedPercent": "98"
   },
   "taker": {
-    username: "username",
-    role: "BUYER",
-    deals: "159",
-    completedPercent: "98"
+    "username": "username",
+    "role": "BUYER",
+    "deals": "159",
+    "completedPercent": "98"
   },
   "createdAt" : 1708336769881
 }
