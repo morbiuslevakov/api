@@ -143,7 +143,7 @@ stompClient.connect({}, function(frame) {
   "type": "SELL",
   "currency": "RUB",
   "assetId": "659b080aa8cc125d77d4e380",
-  "bankIds": [
+  "bankIds": [ // для всех методов оплаты оставить пустым
     "659b080aa8cc125d77d4e380",
     "659b080aa8cc125d77d4e380"
   ]
